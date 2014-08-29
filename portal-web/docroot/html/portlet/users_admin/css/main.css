@@ -214,7 +214,7 @@
 	.user-status-selector {
 		margin-top: 5px;
 
-		@media (min-width: 768px) {
+		@include respond-to(tablet,desktop) {
 			float: right;
 			margin-top: 0;
 		}
@@ -226,13 +226,13 @@
 		.input-select-wrapper {
 			width: 100%;
 
-			@media (min-width: 768px) {
+			@include respond-to(tablet,desktop) {
 				width: auto;
 			}
 		}
 	}
 
-	@media (min-width: 768px) {
+	@include respond-to(tablet,desktop) {
 		.user-table button {
 			float: left;
 		}
