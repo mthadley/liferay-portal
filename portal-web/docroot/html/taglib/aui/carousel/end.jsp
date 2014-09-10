@@ -13,3 +13,19 @@
  * details.
  */
 --%>
+
+<%@ include file="/html/taglib/aui/carousel/init.jsp" %>
+
+</div>
+
+<aui:script use="aui-carousel">
+	new A.Carousel({
+		animationTime: <%= animationTime %>,
+		contentBox: '#<%= id %>',
+		height: '<%= height %>',
+		intervalTime: <%= intervalTime %>,
+		pauseOnHover: <%= pauseOnHover %>,
+		render: true,
+		width: '<%= width %>'
+	})
+</aui:script>

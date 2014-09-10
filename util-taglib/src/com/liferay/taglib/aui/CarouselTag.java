@@ -14,7 +14,11 @@
 
 package com.liferay.taglib.aui;
 
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.aui.base.BaseCarouselTag;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Eduardo Lundgren
@@ -23,4 +27,19 @@ import com.liferay.taglib.aui.base.BaseCarouselTag;
  * @author Julio Camarero
  */
 public class CarouselTag extends BaseCarouselTag {
+
+	@Override
+	protected void setAttributes(HttpServletRequest request) {
+		super.setAttributes(request);
+
+		String id = getId();
+
+		if (Validator.isNull(id)) {
+			id = StringUtil.randomId();
+
+			setId(id);
+			setNamespacedAttribute(request, "id", id);
+		}
+	}
+
 }
