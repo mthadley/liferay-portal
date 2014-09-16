@@ -700,6 +700,12 @@
 				<defaultValue>true</defaultValue>
 			</attribute>
 			<attribute>
+				<name>step</name>
+				<inputType>java.lang.Object</inputType>
+				<outputType>java.lang.Number</outputType>
+				<defaultValue>1</defaultValue>
+			</attribute>
+			<attribute>
 				<name>suffix</name>
 				<inputType>java.lang.String</inputType>
 				<outputType>java.lang.String</outputType>
