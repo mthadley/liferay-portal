@@ -193,6 +193,10 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		return _showRequiredLabel;
 	}
 
+	public java.lang.Object getStep() {
+		return _step;
+	}
+
 	public java.lang.String getSuffix() {
 		return _suffix;
 	}
@@ -457,6 +461,12 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		setScopedAttribute("showRequiredLabel", showRequiredLabel);
 	}
 
+	public void setStep(java.lang.Object step) {
+		_step = step;
+
+		setScopedAttribute("step", step);
+	}
+
 	public void setSuffix(java.lang.String suffix) {
 		_suffix = suffix;
 
@@ -535,6 +545,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		_required = false;
 		_resizable = false;
 		_showRequiredLabel = true;
+		_step = 1;
 		_suffix = null;
 		_title = null;
 		_type = null;
@@ -590,6 +601,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		setNamespacedAttribute(request, "required", _required);
 		setNamespacedAttribute(request, "resizable", _resizable);
 		setNamespacedAttribute(request, "showRequiredLabel", _showRequiredLabel);
+		setNamespacedAttribute(request, "step", _step);
 		setNamespacedAttribute(request, "suffix", _suffix);
 		setNamespacedAttribute(request, "title", _title);
 		setNamespacedAttribute(request, "type", _type);
@@ -643,6 +655,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 	private boolean _required = false;
 	private boolean _resizable = false;
 	private boolean _showRequiredLabel = true;
+	private java.lang.Object _step = 1;
 	private java.lang.String _suffix = null;
 	private java.lang.String _title = null;
 	private java.lang.String _type = null;

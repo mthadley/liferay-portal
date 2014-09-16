@@ -1697,6 +1697,12 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+			<name>step</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
 			<name>suffix</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
