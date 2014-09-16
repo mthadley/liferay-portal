@@ -4,85 +4,96 @@ AUI.add(
 
 		var NAME = 'input-range-fallback';
 
-		InputRangeFallback = A.Component.create({
+		InputRangeFallback = A.Component.create(
+			{
+				ATTRS: {
+					axis: {
+						value: 'x'
+					},
 
-			ATTRS: {
-				axis: {
-					value: 'x'
-				},
-				fallBack: {
-					valueFn: function () {
-						var testInput = A.Node.create('<input />');
-						testInput.set('type', 'range');
+					fallBack: {
+						valueFn: function () {
+							var testInput = A.Node.create('<input />');
+							testInput.set('type', 'range');
 
-						return testInput.get('type') !== "range";
-					}
-				},
-				max: {
-					value: 100
-				},
-				min: {
-					value: 0
-				},
-				outNode: {
-				},
-				srcNode: {
-				},
-				value: {
-					value: 50
-				}
-			},
+							return testInput.get('type') !== "range";
+						}
+					},
 
-			NAME: NAME,
+					max: {
+						value: 100
+					},
 
-			prototype: {
+					min: {
+						value: 0
+					},
 
-				bindUI: function () {
-					var instance = this,
-						outNode = instance.get('outNode'),
-						inputNode = instance.fallBackSlider;
+					outputNode: {
+					},
 
-					var outputNode = A.one(outNode);
+					srcNode: {
+					},
 
-					if (outputNode && inputNode) {
-						inputNode.after('valueChange', function(event) {
-							outputNode.val(inputNode.getValue());
-						});
+					value: {
+						value: 50
 					}
 				},
 
-				renderUI: function () {
-					var instance = this,
-						axis = instance.get('axis'),
-						fallBack = instance.get('fallBack'),
-						max = instance.get('max'),
-						min = instance.get('min'),
-						srcNode = instance.get('srcNode'),
-						value = instance.get('value');
+				NAME: NAME,
 
-					var inputNode = A.one(srcNode);
+				prototype: {
+					bindUI: function () {
+						var instance = this;
 
-					if (fallBack && inputNode) {
+						var output = instance.get('outputNode');
+						var outputNode = A.one(output);
 
-						inputNode.setStyle('display', 'none');
+						var inputNode = instance.fallBackSlider;
 
-						var length = inputNode.ancestor().width();
+						if (outputNode && inputNode) {
+							inputNode.after(
+								'valueChange',
+								function(event) {
+									outputNode.val(inputNode.getValue());
+								}
+							);
+						}
+					},
 
-						var fallBackSlider = new A.Slider({
-							axis: axis,
-							length: length,
-							max: max,
-							min: min,
-							render: inputNode.ancestor(),
-							value: value
-						});
+					renderUI: function () {
+						var instance = this;
 
-						instance.fallBackSlider = fallBackSlider;
+						var axis = instance.get('axis');
+						var fallBack = instance.get('fallBack');
+						var max = instance.get('max');
+						var min = instance.get('min');
+						var srcNode = instance.get('srcNode');
+						var value = instance.get('value');
+
+						var inputNode = A.one(srcNode);
+
+						if (fallBack && inputNode) {
+							inputNode.hide();
+
+							var length = inputNode.ancestor().width();
+
+							var fallBackSlider = new A.Slider(
+								{
+									axis: axis,
+									length: length,
+									max: max,
+									min: min,
+									render: inputNode.ancestor(),
+									value: value
+								}
+							);
+
+							instance.fallBackSlider = fallBackSlider;
+						}
 					}
 				}
 			}
-
-		});
+		);
 
 		Liferay.InputRangeFallback = InputRangeFallback;
 	},

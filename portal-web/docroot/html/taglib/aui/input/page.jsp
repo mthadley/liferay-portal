@@ -168,25 +168,47 @@
 		/>
 	</c:when>
 	<c:when test='<%= type.equals("range") %>'>
-
 		<c:if test='<%= onChange.isEmpty() %>'>
 			<%
-				onChange = "AUI().use('aui-node', function(A) { A.one('#" + namespace + id + "Output').val(A.one('#" + namespace + id +"').val());});";
+				onChange = namespace + id + "updateOutput();";
 			%>
+
+			<aui:script>
+				Liferay.provide(
+					window,
+					'<%= namespace + id %>updateOutput',
+					function() {
+						var A = AUI();
+
+						var outputNode = A.one('#<%= namespace + id %>Output');
+						var rangeNode = A.one('#<%= namespace + id %>Range')
+
+						if (rangeNode && outputNode) {
+							outputNode.val(rangeNode.val());
+						}
+					},
+					['aui-node']
+				);
+			</aui:script>
 		</c:if>
 
-		<input id="<%= namespace + id %>" max="<%= max %>" min="<%= min %>" onchange="<%= onChange %>" oninput="<%= onChange %>" step="1" type="range" value="<%= value %>" />
-		<output id="<%= namespace + id %>Output"><%= value %></output>
+		<input id="<%= namespace + id %>Range" max="<%= max %>" min="<%= min %>" onchange="<%= onChange %>" oninput="<%= onChange %>" step="<%= step %>" type="range" value="<%= value %>" />
+
+		<output id="<%= namespace + id %>Output">
+			<%= value %>
+		</output>
 
 		<aui:script use="liferay-input-range-fallback">
-			new Liferay.InputRangeFallback({
-				axis: "<%= axis %>",
-				max: <%= max %>,
-				min: <%= min %>,
-				outNode: "#<%= namespace + id %>Output",
-				srcNode: "#<%= namespace + id %>",
-				value: <%= value %>
-			}).render();
+			new Liferay.InputRangeFallback(
+				{
+					axis: "<%= axis %>",
+					max: <%= max %>,
+					min: <%= min %>,
+					outputNode: "#<%= namespace + id %>Output",
+					srcNode: "#<%= namespace + id %>",
+					value: <%= value %>
+				}
+			).render();
 		</aui:script>
 
 	</c:when>
