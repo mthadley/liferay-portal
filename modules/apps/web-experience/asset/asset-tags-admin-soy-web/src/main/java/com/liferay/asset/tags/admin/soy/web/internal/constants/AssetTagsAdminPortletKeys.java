@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.asset.tags.admin.web.internal.constants;
+package com.liferay.asset.tags.admin.soy.web.internal.constants;
 
 /**
  * @author Eudaldo Alonso
@@ -20,6 +20,9 @@ package com.liferay.asset.tags.admin.web.internal.constants;
 public class AssetTagsAdminPortletKeys {
 
 	public static final String ASSET_TAGS_ADMIN =
-		"com_liferay_asset_tags_admin_web_portlet_AssetTagsAdminPortlet";
+		"com_liferay_asset_tags_admin_web_portlet_AssetTagsAdminSoyPortlet";
+
+	public static final String ASSET_TAGS_ADMIN_SOY =
+		"com_liferay_asset_tags_admin_web_portlet_AssetTagsAdminSoySoyPortlet";
 
 }

@@ -12,11 +12,11 @@
  * details.
  */
 
-package com.liferay.asset.tags.admin.web.internal.lar;
+package com.liferay.asset.tags.admin.soy.web.internal.lar;
 
 import com.liferay.asset.kernel.model.AssetTag;
 import com.liferay.asset.kernel.service.AssetTagLocalService;
-import com.liferay.asset.tags.admin.web.internal.constants.AssetTagsAdminPortletKeys;
+import com.liferay.asset.tags.admin.soy.web.internal.constants.AssetTagsAdminPortletKeys;
 import com.liferay.exportimport.kernel.lar.BasePortletDataHandler;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataHandler;

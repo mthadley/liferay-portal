@@ -12,9 +12,9 @@
  * details.
  */
 
-package com.liferay.asset.tags.admin.web.internal.portlet.route;
+package com.liferay.asset.tags.admin.soy.web.internal.portlet.route;
 
-import com.liferay.asset.tags.admin.web.internal.constants.AssetTagsAdminPortletKeys;
+import com.liferay.asset.tags.admin.soy.web.internal.constants.AssetTagsAdminPortletKeys;
 import com.liferay.portal.kernel.portlet.DefaultFriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
 
@@ -26,7 +26,7 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	property = {
 		"com.liferay.portlet.friendly-url-routes=META-INF/friendly-url-routes/routes.xml",
-		"javax.portlet.name=" + AssetTagsAdminPortletKeys.ASSET_TAGS_ADMIN
+		"javax.portlet.name=" + AssetTagsAdminPortletKeys.ASSET_TAGS_ADMIN_SOY
 	},
 	service = FriendlyURLMapper.class
 )
@@ -37,6 +37,6 @@ public class AssetTagsAdminFriendlyURLMapper extends DefaultFriendlyURLMapper {
 		return _MAPPING;
 	}
 
-	private static final String _MAPPING = "tags_admin";
+	private static final String _MAPPING = "tags_admin_soy";
 
 }
