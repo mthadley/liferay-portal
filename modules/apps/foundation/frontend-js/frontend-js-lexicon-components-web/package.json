@@ -23,6 +23,8 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.6",
+    "lexicon-action-button": "^1.0.0",
+    "lexicon-icon": "^1.0.0",
     "lexicon-management-bar": "^1.0.0"
   },
   "devDependencies": {
