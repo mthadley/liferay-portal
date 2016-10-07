@@ -23,9 +23,9 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.6",
-    "lexicon-action-button": "^1.0.0",
-    "lexicon-icon": "^1.0.0",
-    "lexicon-management-bar": "^1.0.0"
+    "lexicon-breadcrumbs": "0.0.1",
+    "lexicon-button": "0.0.2",
+    "lexicon-icon": "0.0.5"
   },
   "devDependencies": {
     "babel-preset-metal": "^3.0.0",

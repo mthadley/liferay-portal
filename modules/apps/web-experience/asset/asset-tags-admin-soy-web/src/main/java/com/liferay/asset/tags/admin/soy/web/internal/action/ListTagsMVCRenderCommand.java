@@ -144,9 +144,25 @@ public class ListTagsMVCRenderCommand implements MVCRenderCommand {
 
 		template.put("managementBar", managementBar);
 
-		// IMPLICIT DEFINEOBJECT THINGIES!!!
-		template.put("pathThemeImages", themeDisplay.getPathThemeImages());
-		template.put("spritesheet", themeDisplay.getPathThemeImages() + "/lexicon/icons.svg");
+		List<Map<String, Object>> breadcrumbs = new ArrayList<>();
+
+		Map<String, Object> breadcrumb1 = new HashMap<>();
+		breadcrumb1.put("href", "#0");
+		breadcrumb1.put("label", "Home");
+
+		Map<String, Object> breadcrumb2 = new HashMap<>();
+		breadcrumb2.put("href", "#1");
+		breadcrumb2.put("label", "Level 1");
+
+		Map<String, Object> breadcrumb3 = new HashMap<>();
+		breadcrumb3.put("label", "Level 2");
+		breadcrumb3.put("active", true);
+
+		breadcrumbs.add(breadcrumb1);
+		breadcrumbs.add(breadcrumb2);
+		breadcrumbs.add(breadcrumb3);
+
+		template.put("breadcrumbs", breadcrumbs);
 
 		//List<Pokemon> pokemons = _pokemonLocalService.getPokemons(user.getGroupId());
 

@@ -3,22 +3,28 @@
 /**
  * Prints the Tags view page
  *
- * @param addMenu
+ * @param breadcrumbs
  * @param id
- * @param managementBar
- * @param spritesheet
+ * @param themeDisplay
  */
 {template .render}
 	<div id="{$id}">
 		{call .aui_nav_bar /}
 
+		{call LexiconBreadcrumbs.render}
+			{param items: $breadcrumbs /}
+			{param ref: 'breadcrumbs' /}
+		{/call}
+
 		<div class="management-bar-container" data-qa-id="managementBar">
+			/*
 			{call Lexicon_ManagementBar.render}
 				{param buttons: $managementBar.buttons /}
 				{param filters: $managementBar.filters /}
 				{param showCheckbox: $managementBar.showCheckbox /}
 				{param spritesheet: $spritesheet /}
 			{/call}
+			*/
 		</div>
 
 		/*
@@ -29,10 +35,11 @@
 			{param key: $id + 'SearchContainer' /}
 		{/call}
 		*/
-
-		{call Lexicon_ActionButton.render data="all"}
-			{param cssClasses: 'btn-bottom-right' /}
-			{param items: $addMenu.items /}
+		{call LexiconButton.render data="all"}
+			{param elementClasses: 'btn-action btn-bottom-right' /}
+			{param icon: 'plus' /}
+			{param level: 'primary' /}
+			{param spritemap: $themeDisplay.pathThemeImages +'/lexicon/icons.svg' /}
 		{/call}
 	</div>
 {/template}

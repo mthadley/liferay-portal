@@ -9,5 +9,6 @@ configJSModules {
 }
 
 gulpBuild {
+	dependsOn npmInstall
 	gulpCommand "bundle"
 }
