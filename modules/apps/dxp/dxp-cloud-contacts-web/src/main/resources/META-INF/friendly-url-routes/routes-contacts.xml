@@ -6,4 +6,12 @@
 		<pattern>/contacts</pattern>
 		<implicit-parameter name="mvcRenderCommandName">/contacts/ContactsHome</implicit-parameter>
 	</route>
+	<route>
+		<pattern>/contacts/settings</pattern>
+		<implicit-parameter name="mvcRenderCommandName">/contacts/Settings</implicit-parameter>
+	</route>
+	<route>
+		<pattern>/contacts/proxy</pattern>
+		<implicit-parameter name="mvcRenderCommandName">/contacts/Proxy</implicit-parameter>
+	</route>
 </routes>

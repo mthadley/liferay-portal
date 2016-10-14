@@ -5,12 +5,13 @@
 <html>
 
 <head>
+	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
 	<@liferay_util["include"] page=top_head_include />
 
 	<link rel="stylesheet" href="//westyle.wedeploy.io/build/westyle.css">
-	<link rel="stylesheet" href="//dashboard.wedeploy.com/build/vendor/westyle/build/fonts/galano/galano.css">
-	<link rel="stylesheet" href="//dashboard.wedeploy.com/build/vendor/westyle/build/fonts/icon-12/icon-12.css">
-	<link rel="stylesheet" href="//dashboard.wedeploy.com/build/vendor/westyle/build/fonts/icon-16/icon-16.css">
+	<link rel="stylesheet" href="//westyle.wedeploy.io/build/fonts/galano/galano.css">
+	<link rel="stylesheet" href="//westyle.wedeploy.io/build/fonts/icon-12/icon-12.css">
+	<link rel="stylesheet" href="//westyle.wedeploy.io/build/fonts/icon-16/icon-16.css">
 	<link rel="stylesheet" href="//sennajs.com/vendor/senna/build/senna.css">
 </head>
 

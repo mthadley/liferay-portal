@@ -1,0 +1,14 @@
+{namespace IconButton}
+
+/**
+ * IconButton
+ *
+ * @param iconName
+ * @param? borderless
+ * @param? light
+ */
+{template .render}
+	<button class="btn icon-button{$light ? ' light' : ''}{$borderless ? ' borderless' : ''}" onClick="onClick">
+		<span class="icon icon-16-{$iconName}"></span>
+	</button>
+{/template}

@@ -1,0 +1,68 @@
+.field-display {
+	$selectedColor: #5191FC;
+
+	&.field-display-editable .field-box {
+		padding: 0;
+	}
+
+	&.field-display-editable,
+	&.selected,
+	&.show-tools {
+		.field-box {
+			border-color: $selectedColor;
+		}
+	}
+
+	&.selected .field-box:after {
+		border-right: 4px solid $selectedColor;
+		content: '';
+		height: 100%;
+		position: absolute;
+		right: -10px;
+	}
+
+	.field-box {
+		border: 2px solid #DDD;
+		border-radius: 6px;
+		margin-bottom: 24px;
+		position: relative;
+	}
+
+	.field-toolbar {
+		&.toolbar-active {
+			background-color: $selectedColor;
+		}
+
+		.source-count-icon {
+			vertical-align: middle;
+		}
+
+		.source-count {
+			margin-left: 8px;
+		}
+	}
+
+	.edit-tools {
+		align-items: center;
+		border-radius: 0 3px 3px 0;
+		display: flex;
+
+		.action {
+			&:last-child {
+				margin-right: 16px;
+			}
+
+			&.disabled {
+				cursor: default;
+				opacity: 0.5;
+			}
+
+			color: white;
+			margin-left: 16px;
+		}
+	}
+
+	.extra {
+		opacity: 0.4;
+	}
+}

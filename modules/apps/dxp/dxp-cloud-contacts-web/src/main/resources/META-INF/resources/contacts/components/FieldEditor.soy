@@ -1,0 +1,75 @@
+{namespace FieldEditor}
+
+/**
+ * FieldEditor
+ *
+ * @param field
+ * @param? handleDeleteField_
+ * @param? handleDeleteMappedField_
+ * @param? handleEditMappedField_
+ * @param? handleFlagMappedField_
+ */
+{template .render}
+	<div class="field-editor">
+		<div class="field-editor-header">
+			{call FieldDisplay.render}
+				{param editable: true /}
+				{param extra: $field.uuid /}
+				{param id: $field.uuid /}
+				{param name: $field.displayName /}
+				{param onDelete: $handleDeleteField_ /}
+			{/call}
+
+			<div class="field-count">
+				<span class="count-icon icon-12-link"></span>
+				{length($field.mappedFields)} field(s) mapped
+			</div>
+
+			<div class="toolbar">
+				<div class="priority">
+					<span>Priority</span>
+
+					{call IconButton.render}
+						{param borderless: true /}
+						{param iconName: 'clock' /}
+					{/call}
+
+					{call IconButton.render}
+						{param borderless: true /}
+						{param iconName: 'arrow-up-rod' /}
+					{/call}
+				</div>
+
+				<div class="controls">
+					{call IconButton.render}
+						{param iconName: 'magnifier' /}
+					{/call}
+
+					{call IconButton.render}
+						{param iconName: 'plus' /}
+						{param light: true /}
+					{/call}
+				</div>
+			</div>
+		</div>
+
+		<div class="field-editor-body">
+			{foreach $mappedField in $field.mappedFields}
+				{call FieldDisplay.render}
+					{param extra: $mappedField.source /}
+					{param id: $mappedField.id /}
+					{param name: $mappedField.name /}
+					{param onDelete: $handleDeleteMappedField_ /}
+					{param onEdit: $handleEditMappedField_ /}
+					{param onFlag: $handleFlagMappedField_ /}
+				{/call}
+			{ifempty}
+				<span class="empty-message">No fields currently being mapped</span>
+			{/foreach}
+		</div>
+
+		<div class="field-editor-footer">
+			<button class="btn btn-accent" onClick="handleDone_">Done</button>
+		</div>
+	</div>
+{/template}

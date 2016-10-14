@@ -1,0 +1,25 @@
+.btn.icon-button {
+	$lightColor: #7DBBFC;
+
+	background-color: transparent;
+	border: 1px solid #DDD;
+	color: #999;
+	height: 32px;
+	line-height: 32px;
+	margin-left: 8px;
+	padding: 1px;
+	width: 32px;
+
+	&.borderless {
+		border-width: 0;
+	}
+
+	&.light {
+		border-color: $lightColor;
+		color: $lightColor;
+	}
+
+	span.icon {
+		margin-right: 0;
+	}
+}

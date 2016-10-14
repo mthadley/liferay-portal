@@ -1,0 +1,96 @@
+{namespace Settings}
+
+/**
+ * Settings
+ *
+ * @param fields
+ * @param id
+ * @param sidebar
+ * @param mvcRenderCommandName
+ * @param? selectedField_
+ * @param? showAddModal_
+ * @param? handleAddClick_
+ * @param? handleAddModalCancel_
+ * @param? handleAddModalSave_
+ * @param? handleDelete_
+ * @param? handleDoneEditingField_
+ * @param? handleEdit_
+ */
+{template .render}
+	<div id="{$id}">
+		{call DXPTopbar.render data="all"}{/call}
+
+		{if $sidebar}
+			{call DXPSidebar.render}
+				{param mvcRenderCommandName: $mvcRenderCommandName /}
+				{param items: $sidebar.items /}
+			{/call}
+		{/if}
+
+		<div class="sidebar-offset">
+			<div class="row contact-settings">
+				<div class="col-md-8 mapped-fields">
+					<div class="fields-header">
+						<div class="fields-toolbar">
+							<span class="title">Meta Data Fields</span>
+
+							<div class="controls">
+								{call IconButton.render}
+									{param iconName: 'magnifier' /}
+								{/call}
+
+								{call IconButton.render}
+									{param iconName: 'plus' /}
+									{param onClick: $handleAddClick_ /}
+									{param light: true /}
+								{/call}
+							</div>
+						</div>
+
+						<p class="help-text">Sit at quia culpa doloremque dolores. Exercitationem ea eos ducimus magnam corrupti! Laboriosam cupiditate corporis ipsam sunt blanditiis! Eaque perferendis?</p>
+					</div>
+
+					<div class="fields-container">
+						{foreach $field in $fields}
+							{call FieldDisplay.render}
+								{param extra: $field.uuid /}
+								{param id: $field.uuid /}
+								{param name: $field.displayName /}
+								{param onDelete: $handleDelete_ /}
+								{param onEdit: $handleEdit_ /}
+								{param selected: $selectedField_ and $field.name == $selectedField_.name /}
+								{param sourceCount: $field.sourceCount /}
+							{/call}
+						{ifempty}
+							<span class="empty-message">No fields being mapped</span>
+						{/foreach}
+					</div>
+				</div>
+
+				<div class="col-md-8 edit-field">
+					{if $selectedField_}
+						{call FieldEditor.render}
+							{param field: $selectedField_ /}
+							{param onDone: $handleDoneEditingField_ /}
+						{/call}
+					{/if}
+				</div>
+
+				{if $showAddModal_}
+					{call Modal.render}
+						{param body kind="html"}
+							{call AddField.render}
+								{param text: 'Modal Body Add' /}
+								{param onSave: $handleAddModalSave_ /}
+								{param onCancel: $handleAddModalCancel_ /}
+							{/call}
+						{/param}
+						{param header: 'Map New Field' /}
+						{param noCloseButton: true /}
+						{param ref: 'addModal' /}
+					{/call}
+				{/if}
+			</div>
+		</div>
+	</div>
+{/template}

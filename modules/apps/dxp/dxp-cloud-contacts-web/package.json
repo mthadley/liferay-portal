@@ -1,12 +1,13 @@
 {
-	"dependencies": {
-		"metal-component": "^2.4.5",
-		"metal-soy": "^2.4.5"
-	},
-	"devDependencies": {
-		"liferay-module-config-generator": "^1.1.10",
-		"metal-cli": "^1.3.1"
-	},
-	"name": "dxp-cloud-contacts",
-	"version": "1.0.0"
+  "dependencies": {
+    "metal-component": "^2.4.5",
+    "metal-modal": "^2.0.3",
+    "metal-soy": "^2.4.5"
+  },
+  "devDependencies": {
+    "liferay-module-config-generator": "^1.1.10",
+    "metal-cli": "^2.1.1"
+  },
+  "name": "dxp-cloud-contacts",
+  "version": "1.0.0"
 }
