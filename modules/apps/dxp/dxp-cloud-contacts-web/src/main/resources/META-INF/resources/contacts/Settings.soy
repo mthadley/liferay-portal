@@ -1,0 +1,97 @@
+{namespace Settings}
+
+/**
+ * Settings
+ *
+ * @param fields
+ * @param id
+ * @param sidebar
+ * @param mvcRenderCommandName
+ * @param loading_
+ * @param? selectedFieldName_
+ * @param? showAddModal_
+ * @param? handleAddClick_
+ * @param? handleAddModalCancel_
+ * @param? handleAddModalSave_
+ * @param? handleDelete_
+ * @param? handleDoneEditingField_
+ * @param? handleEdit_
+ */
+{template .render}
+	<div id="{$id}">
+		{call DXPTopbar.render data="all"}{/call}
+
+		{if $sidebar}
+			{call DXPSidebar.render}
+				{param mvcRenderCommandName: $mvcRenderCommandName /}
+				{param items: $sidebar.items /}
+			{/call}
+		{/if}
+
+		<div class="sidebar-offset">
+			<div class="row contact-settings">
+				<div class="col-md-8 mapped-fields">
+					<div class="fields-header">
+						<div class="fields-toolbar">
+							<span class="title">Meta Data Fields</span>
+
+							<div class="controls">
+								{call IconButton.render}
+									{param iconName: 'plus' /}
+									{param onClick: $handleAddClick_ /}
+									{param light: true /}
+								{/call}
+							</div>
+						</div>
+
+						<p class="help-text">Below are a list of fields being saved for each user profile. Hover over any of them to see a toolbar that will allow you to delete or edit these fields. The edit menu will also allow you to modify and delete mapping rules for each of the fields.</p>
+					</div>
+
+					<div class="fields-container">
+						{if $loading_}
+							<span class="spinner spinner-large"></span>
+						{else}
+							{foreach $field in $fields}
+								{call FieldDisplay.render}
+									{param name: $field.name /}
+									{param fieldId: $field.name /}
+									{param onDelete: $handleDelete_ /}
+									{param onEdit: $handleEdit_ /}
+									{param selected: $selectedFieldName_ and $field.name == $selectedFieldName_ /}
+									{param sourceCount: $field.name /}
+									{param required: $field.required /}
+								{/call}
+							{ifempty}
+								<span class="empty-message">No fields being mapped</span>
+							{/foreach}
+						{/if}
+					</div>
+				</div>
+
+				<div class="col-md-8 edit-field">
+					{if $selectedFieldName_}
+						{call FieldEditor.render}
+							{param fieldName: $selectedFieldName_ /}
+							{param onDone: $handleDoneEditingField_ /}
+						{/call}
+					{/if}
+				</div>
+
+				{if $showAddModal_}
+					{call Modal.render}
+						{param body kind="html"}
+							{call AddField.render}
+								{param text: 'Modal Body Add' /}
+								{param onSave: $handleAddModalSave_ /}
+								{param onCancel: $handleAddModalCancel_ /}
+							{/call}
+						{/param}
+						{param header: 'Map New Field' /}
+						{param noCloseButton: true /}
+						{param ref: 'addModal' /}
+					{/call}
+				{/if}
+			</div>
+		</div>
+	</div>
+{/template}

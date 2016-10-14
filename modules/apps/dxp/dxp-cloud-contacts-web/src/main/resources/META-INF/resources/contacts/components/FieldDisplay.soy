@@ -1,0 +1,78 @@
+{namespace FieldDisplay}
+
+/**
+ * FieldDisplay
+ *
+ * @param name
+ * @param? editable
+ * @param? required
+ * @param? extra
+ * @param? onDelete
+ * @param? onEdit
+ * @param? onFlag
+ * @param? selected
+ * @param? sourceCount
+ * @param? showTools_
+ */
+{template .render}
+	<div class="field-display form-group{$selected ? ' selected' : ''}{$showTools_ ? ' show-tools' : ''}{$editable ? ' field-display-editable' : ''}">
+		{if $extra}
+			<div class="extra">{$extra}</div>
+		{/if}
+
+		{let $toolbarActive: not $selected and $showTools_ or $editable /}
+		{let $inputAddon: $toolbarActive or $sourceCount /}
+
+		<div class="field-box{$inputAddon ? ' input-group' : ''}" onMouseEnter="handleMouseEnter_" onMouseLeave="handleMouseLeave_">
+			<input class="form-control{$inputAddon ? ' input-group-addon-input' : ''}"{if not $editable} disabled {/if}placeholder="field name" type="text" value="{$name}"></input>
+
+
+			{if $inputAddon}
+				<div class="field-toolbar input-group-addon{not $editable ? ' disabled' : ''}{$toolbarActive ? ' toolbar-active' : ''}">
+					{if $toolbarActive}
+						<div class="edit-tools">
+							{if $onEdit or $editable}
+								{call .action}
+									{param elementClasses: $editable ? 'disabled' : '' /}
+									{param onClick: 'handleEdit_' /}
+									{param iconName: 'gear' /}
+								{/call}
+							{/if}
+
+							{if $onDelete}
+								{call .action}
+									{param elementClasses: $required ? 'disabled' : '' /}
+									{param onClick: 'handleDelete_' /}
+									{param iconName: 'trash' /}
+								{/call}
+							{/if}
+
+							{if $onFlag}
+								{call .action}
+									{param onClick: 'handleFlag_' /}
+									{param iconName: 'arrow-up-rod' /}
+								{/call}
+							{/if}
+						</div>
+					{elseif $sourceCount}
+						<span class="source-count-icon icon-16-link"></span>
+						<span class="source-count">{$sourceCount}</span>
+					{/if}
+				</div>
+			{/if}
+		</div>
+	</div>
+{/template}
+
+/**
+ * Action
+ *
+ * @param? elementClasses
+ * @param onClick
+ * @param iconName
+ */
+{template .action}
+	<a class="action{$elementClasses ? ' ' + $elementClasses : ''}" href="javascript:;" onClick="{$onClick}">
+		<span class="icon-16-{$iconName}"></span>
+	</a>
+{/template}

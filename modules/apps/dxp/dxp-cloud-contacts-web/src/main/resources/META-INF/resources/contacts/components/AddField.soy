@@ -1,0 +1,69 @@
+{namespace AddField}
+
+/**
+ * AddField
+ *
+ * @param? onCancel
+ * @param? sourceId_
+ * @param? sourceTableId_
+ * @param? sourceFieldId_
+ * @param? destinationFieldName_
+ * @param? mappingDataSourceNames_
+ * @param? mappingDataSourceTableNames_
+ * @param? mappingDataSourceFieldNames_
+ *
+ * @param? handleSourceIdChange_
+ * @param? handleSourceTableIdChange_
+ * @param? handleSourceFieldIdChange_
+ */
+{template .render}
+	<div class="add-field">
+
+		<div class="form-group">
+			<label for="destinationFieldName">Destination Field Name</label>
+			<input class="form-control" id="destinationFieldName" onInput="handleDestinationFieldChange_" type="text" placeholder="Enter field name here." />
+		</div>
+
+		<div class="row select-fields">
+			<div class="col-md-5">
+				{call FieldPicker.render}
+					{param items: $mappingDataSourceNames_ /}
+					{param ref: 'source' /}
+					{param selectedItemId: $sourceId_ /}
+					{param onSelect: $handleSourceIdChange_ /}
+					{param label: 'Select Data Source' /}
+					{param disabled: false /}
+				{/call}
+			</div>
+
+			<div class="col-md-5">
+				{call FieldPicker.render}
+					{param items: $mappingDataSourceTableNames_ /}
+					{param ref: 'table' /}
+					{param selectedItemId: $sourceTableId_ /}
+					{param onSelect: $handleSourceTableIdChange_ /}
+					{param label: 'Select Table' /}
+					{param disabled: not isNonnull($sourceId_) /}
+				{/call}
+			</div>
+
+			<div class="col-md-5">
+				{call FieldPicker.render}
+					{param items: $mappingDataSourceFieldNames_ /}
+					{param ref: 'field' /}
+					{param selectedItemId: $sourceFieldId_ /}
+					{param onSelect: $handleSourceFieldIdChange_ /}
+					{param label: 'Select Field' /}
+					{param disabled: not isNonnull($sourceTableId_) /}
+				{/call}
+			</div>
+		</div>
+
+		{let $disabled: not ($sourceId_ and $sourceTableId_ and $sourceFieldId_ and $destinationFieldName_) /}
+
+		<div class="btn-group">
+			<button class="btn btn-primary"{if $disabled} disabled {/if}onClick="handleSave_">Done</button>
+			<button class="btn btn-default" onClick="{$onCancel}">Cancel</button>
+		</div>
+	</div>
+{/template}

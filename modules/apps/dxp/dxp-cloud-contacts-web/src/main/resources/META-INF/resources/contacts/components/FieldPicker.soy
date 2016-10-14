@@ -1,0 +1,33 @@
+{namespace FieldPicker}
+
+/**
+ * FieldPicker
+ *
+ * @param label
+ * @param disabled
+ * @param? inputValue_
+ * @param? filteredItems_
+ * @param? handleFieldSelect_
+ * @param? selectedItemName_
+ */
+{template .render}
+	<div class="field-picker">
+		{let $fieldDisabled: $disabled or isNonnull($selectedItemName_) /}
+
+		<input class="form-control"{if $fieldDisabled} disabled {/if}type="text" placeholder="{$label}" onInput="handleInputChange_" value="{$selectedItemName_ ?: $inputValue_}" />
+
+		{if not $fieldDisabled}
+			<ul class="fields">
+				{foreach $item in $filteredItems_}
+					<li>
+						{call FieldPickerItem.render}
+							{param name: $item.name /}
+							{param fieldId: $item.id /}
+							{param onClick: $handleFieldSelect_ /}
+						{/call}
+					</li>
+				{/foreach}
+			</ul>
+		{/if}
+	</div>
+{/template}

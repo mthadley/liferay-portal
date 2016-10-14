@@ -1,0 +1,40 @@
+.field-editor {
+	$border: 1px dashed #C7D3FF;
+	$padding: 16px 12px;
+
+	.field-editor-header {
+		border-bottom: $border;
+		padding: $padding;
+
+		.toolbar {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+
+	.field-editor-body {
+		padding: $padding;
+	}
+
+	.field-count {
+		margin-bottom: 24px;
+
+		.count-icon {
+			margin-right: 8px;
+		}
+	}
+
+	.field-editor-footer {
+		border-top: $border;
+		padding: $padding;
+	}
+
+	.priority {
+		color: #888;
+
+		.icon-button {
+			margin-left: 0;
+		}
+	}
+}
