@@ -39,7 +39,14 @@ class Settings extends Component {
 	}
 
 	handleAddClick_() {
-		this.showAddModal_ = true;
+		this.handleAddModal_();
+	}
+
+	handleAddModal_(name = '') {
+		this.setState({
+			showAddModal_: true,
+			destinationFieldName_: name
+		});
 	}
 
 	handleAddModalSave_(data) {
@@ -100,6 +107,11 @@ class Settings extends Component {
 }
 
 Settings.STATE = {
+	destinationFieldName_: {
+		validator: core.isString,
+		value: ''
+	},
+
 	fields: {
 		validator: core.isArray,
 		value: []

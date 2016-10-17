@@ -6,6 +6,7 @@
  * @param fieldName
  * @param? mappedFields_
  * @param? loading_
+ * @param? handleAddMappedField_
  * @param? handleDeleteField_
  * @param? handleDeleteMappedField_
  * @param? handleEditMappedField_
@@ -45,6 +46,7 @@
 					{call IconButton.render}
 						{param iconName: 'plus' /}
 						{param light: true /}
+						{param onClick: $handleAddMappedField_ /}
 					{/call}
 				</div>
 			</div>

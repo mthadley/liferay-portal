@@ -22,7 +22,7 @@ class AddField extends Component {
 	handleSave_() {
 		this.onSave(
 			{
-				destinationField: this.destinationFieldName_,
+				destinationField: this.destinationFieldName,
 				mappingDataSourceId: this.sourceId_,
 				modelName: this.sourceTableId_,
 				sourceField: this.sourceFieldId_
@@ -72,7 +72,7 @@ class AddField extends Component {
 	}
 
 	handleDestinationFieldChange_(event) {
-		this.destinationFieldName_ = event.target.value;
+		this.destinationFieldName = event.target.value;
 	}
 
 	handleSourceIdChange_(id) {
@@ -93,7 +93,7 @@ class AddField extends Component {
 }
 
 AddField.STATE = {
-	destinationFieldName_: {
+	destinationFieldName: {
 		validator: core.isString,
 		value: ''
 	},

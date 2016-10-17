@@ -8,9 +8,11 @@
  * @param sidebar
  * @param mvcRenderCommandName
  * @param loading_
+ * @param? destinationFieldName_
  * @param? selectedFieldName_
  * @param? showAddModal_
  * @param? handleAddClick_
+ * @param? handleAddModal_
  * @param? handleAddModalCancel_
  * @param? handleAddModalSave_
  * @param? handleDelete_
@@ -72,6 +74,7 @@
 					{if $selectedFieldName_}
 						{call FieldEditor.render}
 							{param fieldName: $selectedFieldName_ /}
+							{param onAdd: $handleAddModal_ /}
 							{param onDelete: $handleDelete_ /}
 							{param onDone: $handleDoneEditingField_ /}
 						{/call}
@@ -82,6 +85,7 @@
 					{call Modal.render}
 						{param body kind="html"}
 							{call AddField.render}
+								{param destinationFieldName: $destinationFieldName_ /}
 								{param text: 'Modal Body Add' /}
 								{param onSave: $handleAddModalSave_ /}
 								{param onCancel: $handleAddModalCancel_ /}

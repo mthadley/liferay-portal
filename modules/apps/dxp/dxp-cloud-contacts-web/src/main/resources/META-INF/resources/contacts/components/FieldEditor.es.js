@@ -45,6 +45,10 @@ class FieldEditor extends Component {
 		);
 	}
 
+	handleAddMappedField_() {
+		this.onAdd(this.fieldName);
+	}
+
 	handleDeleteField_(id) {
 		this.onDelete(id, true);
 	}
@@ -99,6 +103,11 @@ FieldEditor.STATE = {
 	mappedFields_: {
 		validator: core.isArray,
 		value: []
+	},
+
+	onAdd: {
+		validator: core.isFunction,
+		value: core.nullFunction
 	},
 
 	onDelete: {
