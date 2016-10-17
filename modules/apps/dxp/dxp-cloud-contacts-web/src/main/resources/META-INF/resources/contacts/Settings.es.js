@@ -68,8 +68,22 @@ class Settings extends Component {
 		this.selectedFieldName_ = name;
 	}
 
-	handleDelete_(id) {
-		alert(`Delete field: ${id}`);
+	handleDelete_(id, closeEdit) {
+		if (confirm('Are you sure you want to delete this destination field?')) {
+			Liferay.Service(
+				'/osb_scv.usermappingrule/delete-user-mapping-rules',
+				{
+					destinationField: id
+				},
+				() => {
+					if (closeEdit) {
+						this.selectedFieldName_ = null;
+					}
+
+					this.getFields_();
+				}
+			);
+		}
 	}
 
 	handleDoneEditingField_(reload) {

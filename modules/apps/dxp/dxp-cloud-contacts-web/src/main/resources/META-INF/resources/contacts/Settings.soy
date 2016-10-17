@@ -72,6 +72,7 @@
 					{if $selectedFieldName_}
 						{call FieldEditor.render}
 							{param fieldName: $selectedFieldName_ /}
+							{param onDelete: $handleDelete_ /}
 							{param onDone: $handleDoneEditingField_ /}
 						{/call}
 					{/if}

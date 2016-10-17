@@ -46,7 +46,7 @@ class FieldEditor extends Component {
 	}
 
 	handleDeleteField_(id) {
-		alert(`Delete field: ${id}`);
+		this.onDelete(id, true);
 	}
 
 	handleDeleteMappedField_(userMappingRuleId) {
@@ -99,6 +99,11 @@ FieldEditor.STATE = {
 	mappedFields_: {
 		validator: core.isArray,
 		value: []
+	},
+
+	onDelete: {
+		validator: core.isFunction,
+		value: core.nullFunction
 	},
 
 	onDone: {
