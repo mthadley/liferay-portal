@@ -11,7 +11,6 @@
  * @param? mappingDataSourceNames_
  * @param? mappingDataSourceTableNames_
  * @param? mappingDataSourceFieldNames_
- *
  * @param? handleSourceIdChange_
  * @param? handleSourceTableIdChange_
  * @param? handleSourceFieldIdChange_
@@ -30,7 +29,6 @@
 			<div class="col-md-5">
 				{call FieldPicker.render}
 					{param items: $mappingDataSourceNames_ /}
-					{param ref: 'source' /}
 					{param selectedItemName: $sourceName_ /}
 					{param onSelect: $handleSourceIdChange_ /}
 					{param label: 'Data Source' /}
@@ -41,7 +39,6 @@
 			<div class="col-md-5">
 				{call FieldPicker.render}
 					{param items: $mappingDataSourceTableNames_ /}
-					{param ref: 'table' /}
 					{param selectedItemName: $tableName_ /}
 					{param onSelect: $handleSourceTableIdChange_ /}
 					{param label: 'Table' /}
@@ -52,7 +49,6 @@
 			<div class="col-md-5">
 				{call FieldPicker.render}
 					{param items: $mappingDataSourceFieldNames_ /}
-					{param ref: 'field' /}
 					{param selectedItemName: $fieldName_ /}
 					{param onSelect: $handleSourceFieldIdChange_ /}
 					{param label: 'Field' /}
