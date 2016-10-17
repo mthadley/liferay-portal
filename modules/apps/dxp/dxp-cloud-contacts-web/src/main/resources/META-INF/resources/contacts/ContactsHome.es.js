@@ -11,6 +11,13 @@ import './Profile.es';
 
 const REGEX_ASSOC = /\$ASSOCIATED\$/;
 
+const CONTACT_INDEX_KEYS = [
+	'Email Address',
+	'First Name',
+	'Last Name',
+	'scvUserProfileId'
+];
+
 class ContactsHome extends Component {
 	getContacts_() {
 		const instance = this;
@@ -38,19 +45,19 @@ class ContactsHome extends Component {
 			(contact, i) => {
 				let contactArr = [];
 
-				Object.keys(contact).forEach(
-					key => {
-						if (!REGEX_ASSOC.test(key)) {
-							const value = contact[key];
+				console.log('contact', contact);
 
-							contactArr.push(
-								{
-									class: _.kebabCase(key),
-									label:  _.startCase(key),
-									value
-								}
-							);
-						}
+				CONTACT_INDEX_KEYS.forEach(
+					key => {
+						const value = contact[key] || '';
+
+						contactArr.push(
+							{
+								class: _.kebabCase(key),
+								label:  _.startCase(key),
+								value
+							}
+						);
 					}
 				);
 
