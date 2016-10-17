@@ -6,5 +6,3 @@ Require-Capability: \
 	soy;filter:="(type=metal)",\
 	soy;filter:="(type=dxp-cloud-sidebar)"
 Web-ContextPath: /dxp-cloud-contacts
--includeresource:\
-	@api-master-SNAPSHOT.jar
