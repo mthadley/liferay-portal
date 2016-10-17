@@ -9,9 +9,22 @@ class FieldPickerItem extends Component {
 	handleClick_() {
 		this.onClick(this.fieldId);
 	}
+
+	handleMouseEnter_() {
+		this.hover_ = true;
+	}
+
+	handleMouseLeave_() {
+		this.hover_ = false;
+	}
 }
 
 FieldPickerItem.STATE = {
+	hover_: {
+		validator: core.isBoolean,
+		value: false
+	},
+
 	onClick: {
 		validator: core.isFunction,
 		value: core.nullFunction

@@ -5,21 +5,23 @@
  *
  * @param label
  * @param disabled
+ * @param? selectedItemName
  * @param? inputValue_
  * @param? filteredItems_
  * @param? handleFieldSelect_
- * @param? selectedItemName_
  */
 {template .render}
 	<div class="field-picker">
-		{let $fieldDisabled: $disabled or isNonnull($selectedItemName_) /}
+		{let $fieldDisabled: $disabled or isNonnull($selectedItemName) /}
 
-		<input class="form-control"{if $fieldDisabled} disabled {/if}type="text" placeholder="{$label}" onInput="handleInputChange_" value="{$selectedItemName_ ?: $inputValue_}" />
+		<div class="form-group{$selectedItemName ? ' has-success' : ''}">
+			<input class="form-control"{if $fieldDisabled} disabled {/if}type="text" placeholder="{$label}" onInput="handleInputChange_" value="{$selectedItemName ?: $inputValue_}" />
+		</div>
 
 		{if not $fieldDisabled}
 			<ul class="fields">
 				{foreach $item in $filteredItems_}
-					<li>
+					<li class="field-item">
 						{call FieldPickerItem.render}
 							{param name: $item.name /}
 							{param fieldId: $item.id /}

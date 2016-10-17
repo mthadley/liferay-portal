@@ -4,7 +4,11 @@
  * FieldPickerItem
  *
  * @param name
+ * @param? hover_
  */
 {template .render}
-	<a class="field-picker-item" href="javascript:;" onClick="handleClick_">{$name}</a>
+	<a class="field-picker-item" href="javascript:;" onClick="handleClick_" onMouseEnter="handleMouseEnter_" onMouseLeave="handleMouseLeave_">
+		<span class="picker-icon icon-16-radio-{$hover_ ? 'checked' : 'unchecked'}"></span>
+		{$name}
+	</a>
 {/template}

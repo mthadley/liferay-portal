@@ -14,6 +14,10 @@ function normalizeFieldNames(names) {
 	}));
 }
 
+function getItemName(items, id) {
+	return items.find(item => item.id === id).name;
+}
+
 class AddField extends Component {
 	created() {
 		this.getMappingDataSourceNames();
@@ -76,19 +80,29 @@ class AddField extends Component {
 	}
 
 	handleSourceIdChange_(id) {
-		this.sourceId_ = id;
+		this.setState({
+			sourceId_: id,
+			sourceName_: getItemName(this.mappingDataSourceNames_, id)
+		});
 
 		this.getMappingDataSourceTableNames(id);
 	}
 
 	handleSourceTableIdChange_(id) {
-		this.sourceTableId_ = id;
+		this.setState({
+			sourceTableId_: id,
+			tableName_: getItemName(this.mappingDataSourceTableNames_, id)
+		});
 
 		this.getMappingDataSourceFieldNames(this.sourceId_, id);
 	}
 
 	handleSourceFieldIdChange_(id) {
 		this.sourceFieldId_ = id;
+		this.setState({
+			fieldName_: getItemName(this.mappingDataSourceFieldNames_, id),
+			sourceFieldId_: id
+		});
 	}
 }
 
@@ -96,6 +110,18 @@ AddField.STATE = {
 	destinationFieldName: {
 		validator: core.isString,
 		value: ''
+	},
+
+	sourceName_: {
+		value: null
+	},
+
+	fieldName_: {
+		value: null
+	},
+
+	tableName_: {
+		value: null
 	},
 
 	sourceId_: {

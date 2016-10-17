@@ -5,9 +5,9 @@
  *
  * @param? destinationFieldName
  * @param? onCancel
- * @param? sourceId_
- * @param? sourceTableId_
- * @param? sourceFieldId_
+ * @param? sourceName_
+ * @param? tableName_
+ * @param? fieldName_
  * @param? mappingDataSourceNames_
  * @param? mappingDataSourceTableNames_
  * @param? mappingDataSourceFieldNames_
@@ -31,7 +31,7 @@
 				{call FieldPicker.render}
 					{param items: $mappingDataSourceNames_ /}
 					{param ref: 'source' /}
-					{param selectedItemId: $sourceId_ /}
+					{param selectedItemName: $sourceName_ /}
 					{param onSelect: $handleSourceIdChange_ /}
 					{param label: 'Select Data Source' /}
 					{param disabled: false /}
@@ -42,10 +42,10 @@
 				{call FieldPicker.render}
 					{param items: $mappingDataSourceTableNames_ /}
 					{param ref: 'table' /}
-					{param selectedItemId: $sourceTableId_ /}
+					{param selectedItemName: $tableName_ /}
 					{param onSelect: $handleSourceTableIdChange_ /}
 					{param label: 'Select Table' /}
-					{param disabled: not isNonnull($sourceId_) /}
+					{param disabled: not isNonnull($sourceName_) /}
 				{/call}
 			</div>
 
@@ -53,15 +53,15 @@
 				{call FieldPicker.render}
 					{param items: $mappingDataSourceFieldNames_ /}
 					{param ref: 'field' /}
-					{param selectedItemId: $sourceFieldId_ /}
+					{param selectedItemName: $fieldName_ /}
 					{param onSelect: $handleSourceFieldIdChange_ /}
 					{param label: 'Select Field' /}
-					{param disabled: not isNonnull($sourceTableId_) /}
+					{param disabled: not isNonnull($tableName_) /}
 				{/call}
 			</div>
 		</div>
 
-		{let $disabled: not ($sourceId_ and $sourceTableId_ and $sourceFieldId_ and $destinationFieldName) /}
+		{let $disabled: not ($sourceName_ and $tableName_ and $fieldName_ and $destinationFieldName) /}
 
 		<div class="btn-group">
 			<button class="btn btn-primary"{if $disabled} disabled {/if}onClick="handleSave_">Done</button>

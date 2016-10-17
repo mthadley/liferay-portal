@@ -40,12 +40,6 @@ class FieldPicker extends Component {
 	syncItems() {
 		this.filteredItems_ = this.getFilteredItems_();
 	}
-
-	syncSelectedItemId() {
-		if (this.selectedItemId) {
-			this.selectedItemName_ = this.items.find(item => item.id === this.selectedItemId).name;
-		}
-	}
 }
 
 FieldPicker.STATE = {
@@ -83,7 +77,7 @@ FieldPicker.STATE = {
 		value: ''
 	},
 
-	selectedItemName_: {
+	selectedItemName: {
 		value: null
 	}
 };
