@@ -33,7 +33,7 @@
 					{param ref: 'source' /}
 					{param selectedItemName: $sourceName_ /}
 					{param onSelect: $handleSourceIdChange_ /}
-					{param label: 'Select Data Source' /}
+					{param label: 'Data Source' /}
 					{param disabled: false /}
 				{/call}
 			</div>
@@ -44,7 +44,7 @@
 					{param ref: 'table' /}
 					{param selectedItemName: $tableName_ /}
 					{param onSelect: $handleSourceTableIdChange_ /}
-					{param label: 'Select Table' /}
+					{param label: 'Table' /}
 					{param disabled: not isNonnull($sourceName_) /}
 				{/call}
 			</div>
@@ -55,7 +55,7 @@
 					{param ref: 'field' /}
 					{param selectedItemName: $fieldName_ /}
 					{param onSelect: $handleSourceFieldIdChange_ /}
-					{param label: 'Select Field' /}
+					{param label: 'Field' /}
 					{param disabled: not isNonnull($tableName_) /}
 				{/call}
 			</div>

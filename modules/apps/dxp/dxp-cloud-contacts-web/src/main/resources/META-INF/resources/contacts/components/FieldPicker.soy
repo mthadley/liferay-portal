@@ -14,7 +14,11 @@
 	<div class="field-picker">
 		{let $fieldDisabled: $disabled or isNonnull($selectedItemName) /}
 
-		<div class="form-group{$selectedItemName ? ' has-success' : ''}">
+		<div class="form-group{$selectedItemName ? ' has-success' : ''}{$fieldDisabled ? '' : ' input-inner-addon input-inner-addon-left'}">
+			{if not $fieldDisabled}
+				<span class="input-inner-icon-helper icon-16-magnifier"></span>
+			{/if}
+
 			<input class="form-control"{if $fieldDisabled} disabled {/if}type="text" placeholder="{$label}" onInput="handleInputChange_" value="{$selectedItemName ?: $inputValue_}" />
 		</div>
 
