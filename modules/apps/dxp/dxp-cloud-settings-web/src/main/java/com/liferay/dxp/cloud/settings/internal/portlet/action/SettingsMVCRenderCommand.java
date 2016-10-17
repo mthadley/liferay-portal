@@ -39,7 +39,7 @@ import org.osgi.service.component.annotations.Component;
 	immediate = true,
 	property = {
 		"javax.portlet.name=dxp_cloud_portlet",
-		"mvc.command.name=/settings/userinformation/SettingsUserInformation"
+		"mvc.command.name=/settings/datasources/SettingsDataSources"
 	},
 	service = MVCRenderCommand.class
 )
@@ -49,13 +49,7 @@ public class SettingsMVCRenderCommand implements MVCRenderCommand {
 	public String render(
 		RenderRequest renderRequest, RenderResponse renderResponse) {
 
-		Template template = (Template)renderRequest.getAttribute(WebKeys.TEMPLATE);
-
-		PortletURL saveURL = renderResponse.createActionURL();
-		saveURL.setParameter(ActionRequest.ACTION_NAME, "SaveSettingsAction");
-		template.put("saveURL", saveURL.toString());
-
-		return "SettingsUserInformation.render";
+		return "SettingsDataSources.render";
 	}
 
 }
