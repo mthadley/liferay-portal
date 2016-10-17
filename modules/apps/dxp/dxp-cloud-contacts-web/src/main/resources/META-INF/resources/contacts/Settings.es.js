@@ -57,7 +57,7 @@ class Settings extends Component {
 			{
 				destinationField: data.destinationField,
 				fieldSetId: 0,
-				frequency: 0,
+				frequency: data.frequency,
 				mappingDataSourceId: data.mappingDataSourceId,
 				modelName: data.modelName,
 				required: false,

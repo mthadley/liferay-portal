@@ -27,6 +27,7 @@ class AddField extends Component {
 		this.onSave(
 			{
 				destinationField: this.destinationFieldName,
+				frequency: this.frequency_,
 				mappingDataSourceId: this.sourceId_,
 				modelName: this.sourceTableId_,
 				sourceField: this.sourceFieldId_
@@ -79,6 +80,10 @@ class AddField extends Component {
 		this.destinationFieldName = event.target.value;
 	}
 
+	handleFrequencyChange_(event) {
+		this.frequency_ = parseInt(event.target.value, 10);
+	}
+
 	handleSourceIdChange_(id) {
 		this.setState({
 			sourceId_: id,
@@ -110,6 +115,38 @@ AddField.STATE = {
 	destinationFieldName: {
 		validator: core.isString,
 		value: ''
+	},
+
+	frequency_: {
+		validator: core.isNumber,
+		value: 0
+	},
+
+	// TODO: Get this configuration from the server.
+	frequencies_: {
+		validator: core.isArray,
+		value: [
+			{
+				label: 'Daily',
+				value: 0
+			},
+			{
+				label: 'Hourly',
+				value: 1
+			},
+			{
+				label: 'Second',
+				value: 3
+			},
+			{
+				label: 'Once',
+				value: 2
+			},
+			{
+				label: 'Instant',
+				value: 4
+			}
+		]
 	},
 
 	sourceName_: {

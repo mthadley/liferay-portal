@@ -8,6 +8,8 @@
  * @param? sourceName_
  * @param? tableName_
  * @param? fieldName_
+ * @param? frequencies_
+ * @param? frequency_
  * @param? mappingDataSourceNames_
  * @param? mappingDataSourceTableNames_
  * @param? mappingDataSourceFieldNames_
@@ -18,9 +20,21 @@
 {template .render}
 	<div class="add-field">
 
-		<div class="form-group destination-field-name">
+		<div class="form-group">
 			<label for="destinationFieldName">Destination Field Name</label>
 			<input class="form-control" id="destinationFieldName" onInput="handleDestinationFieldChange_" type="text" placeholder="Enter field name here." value="{$destinationFieldName}" />
+		</div>
+
+		<label for="frequencySelect">Frequency</label>
+
+		<div class="form-group">
+			<select id="frequencySelect" onChange="handleFrequencyChange_">
+				{foreach $frequency in $frequencies_}
+					<option value="{$frequency.value}"{if $frequency.value == $frequency_} selected {/if}>
+						{$frequency.label}
+					</option>
+				{/foreach}
+			</select>
 		</div>
 
 		<label>Choose Source</label>
