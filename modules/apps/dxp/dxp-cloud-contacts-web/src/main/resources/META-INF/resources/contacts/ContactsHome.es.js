@@ -28,7 +28,7 @@ class ContactsHome extends Component {
 			'/SCVUserProfileUtil.userprofileutil/get-scv-user-profiles',
 			{
 				from: 0,
-				size: 10
+				size: 1000
 			},
 			function(contacts) {
 				instance.contacts_ = instance.normalizeContacts_(contacts);
