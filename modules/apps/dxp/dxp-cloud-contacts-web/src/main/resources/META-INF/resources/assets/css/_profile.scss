@@ -41,5 +41,21 @@
 		.detail {
 			flex-basis: 50%;
 		}
+
+		.first-name {
+			order: -3;
+		}
+
+		.last-name {
+			order: -2;
+		}
+
+		.email-address {
+			order: -1;
+		}
+
+		.scv-user-profile-id {
+			order: 1;
+		}
 	}
 }

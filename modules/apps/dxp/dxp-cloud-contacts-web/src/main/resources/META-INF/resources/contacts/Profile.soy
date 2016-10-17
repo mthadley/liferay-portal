@@ -18,7 +18,7 @@
 
 							<div class="content">
 								{foreach $detail in $item.details}
-									<div class="detail">
+									<div class="detail {$detail.class}">
 										<span class="key">{$detail.label}: </span>
 										<span class="value">{$detail.value}</span>
 									</div>

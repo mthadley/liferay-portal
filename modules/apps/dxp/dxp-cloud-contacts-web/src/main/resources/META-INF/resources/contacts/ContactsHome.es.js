@@ -46,7 +46,7 @@ class ContactsHome extends Component {
 							contactArr.push(
 								{
 									class: _.kebabCase(key),
-									label: key,
+									label:  _.startCase(key),
 									value
 								}
 							);

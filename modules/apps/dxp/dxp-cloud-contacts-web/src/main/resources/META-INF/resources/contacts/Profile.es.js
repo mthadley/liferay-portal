@@ -48,7 +48,8 @@ class Profile extends Component {
 				if (value) {
 					details.push(
 						{
-							label: key,
+							class: _.kebabCase(key),
+							label: _.startCase(key),
 							value
 						}
 					);
