@@ -5,7 +5,6 @@
  *
  * @param? contactId_
  * @param? contacts_
- * @param? contactsLoading_
  * @param? getContacts_
  * @param? onContactClick_
  * @param? onBackClick_
@@ -45,7 +44,6 @@
 						{if $contacts_ and $getContacts_ and $onContactClick_}
 							{call ContactsList.render}
 								{param contacts: $contacts_ /}
-								{param loading: $contactsLoading_ /}
 								{param loadMore: $getContacts_ /}
 								{param onContactClick: $onContactClick_ /}
 							{/call}

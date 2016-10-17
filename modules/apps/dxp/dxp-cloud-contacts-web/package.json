@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "metal-promise": "2.0.1",
     "metal-component": "^2.4.5",
     "metal-modal": "^2.0.3",
     "metal-soy": "^2.4.5"

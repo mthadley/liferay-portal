@@ -7,11 +7,43 @@ import templates from './ContactsList.soy';
 
 import './ContactListItem.es';
 
+import InfiniteScroll from './InfiniteScroll.es';
+
 class ContactsList extends Component {
 	created() {
-		if (this.contacts.length <= 0) {
-			this.loadMore();
-		}
+		this.InfiniteScroll_ = new InfiniteScroll(
+			{
+				hasMoreResults: true,
+				onScrollEnd: this.loadMore_.bind(this),
+				scrollOffset: 2000
+			}
+		);
+
+		this.InfiniteScroll_.created();
+	}
+
+	rendered() {
+		this.InfiniteScroll_.rendered();
+	}
+
+	attached() {
+		this.InfiniteScroll_.scrollContainer = this.element;
+
+		this.InfiniteScroll_.attached();
+	}
+
+	detached() {
+		this.InfiniteScroll_.detached();
+	}
+
+	loadMore_() {
+		this.loading_ = true;
+
+		return this.loadMore().then(
+			() => {
+				this.loading_ = false;
+			}
+		);
 	}
 }
 
@@ -25,7 +57,7 @@ ContactsList.STATE = {
 		validator: core.isFunc
 	},
 
-	loading: {
+	loading_: {
 		validator: core.isBool,
 		value: true
 	},

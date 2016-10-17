@@ -2,7 +2,7 @@
 
 /**
  * @param contacts
- * @param loading
+ * @param? loading_
  * @param onContactClick
  */
 {template .render}
@@ -24,13 +24,13 @@
 					{param onClick: $onContactClick /}
 				{/call}
 			{ifempty}
-				{if not $loading}
+				{if not $loading_}
 					You do not have any contacts.
 				{/if}
 			{/foreach}
 		{/if}
 
-		{if $loading}
+		{if $loading_ != false}
 			<div class="spinner-component">
 				<span class="loading-spinner spinner spinner-large"></span>
 			</div>
