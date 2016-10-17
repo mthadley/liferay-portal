@@ -69,7 +69,7 @@ class Settings extends Component {
 	}
 
 	handleDelete_(id, closeEdit) {
-		if (confirm('Are you sure you want to delete this destination field?')) {
+		if (confirm('Are you sure you want to delete this DXP field?')) {
 			Liferay.Service(
 				'/osb_scv.usermappingrule/delete-user-mapping-rules',
 				{
