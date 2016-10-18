@@ -39,11 +39,19 @@ class ContactsList extends Component {
 	}
 
 	loadMore_() {
-		this.loading_ = true;
+		const instance = this;
 
-		return this.loadMore().then(
-			() => {
-				this.loading_ = false;
+		const {delta} = instance;
+
+		instance.loading_ = true;
+
+		return instance.loadMore(delta).then(
+			contacts => {
+				if (contacts.length < delta) {
+					instance.InfiniteScroll_.hasMoreResults = false;
+				}
+
+				instance.loading_ = false;
 			}
 		);
 	}
@@ -53,6 +61,11 @@ ContactsList.STATE = {
 	contacts: {
 		validator: core.isArray,
 		value: []
+	},
+
+	delta: {
+		validator: core.isNumber,
+		value: 40
 	},
 
 	loadMore: {
