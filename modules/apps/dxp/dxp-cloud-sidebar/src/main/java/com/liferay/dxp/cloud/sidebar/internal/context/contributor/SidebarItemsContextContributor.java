@@ -74,7 +74,7 @@ public class SidebarItemsContextContributor
 		sidebarItem6.put("href", "/web/guest/home/dxp/settings");
 		sidebarItem6.put("icon", "/o/dxp-cloud-sidebar/assets/images/Settings.png");
 		sidebarItem6.put("label", "Settings");
-		sidebarItem6.put("mvcRenderCommandName", "/settings/SettingsDataSources");
+		sidebarItem6.put("mvcRenderCommandName", "/pages/SettingsHome");
 
 		List<Map<String, Object>> sidebarItems = new ArrayList<>();
 		sidebarItems.add(sidebarItem1);

@@ -39,7 +39,7 @@ import org.osgi.service.component.annotations.Component;
 	immediate = true,
 	property = {
 		"javax.portlet.name=dxp_cloud_portlet",
-		"mvc.command.name=/settings/datasources/SettingsDataSources"
+		"mvc.command.name=/pages/SettingsHome"
 	},
 	service = MVCRenderCommand.class
 )
@@ -49,7 +49,7 @@ public class SettingsMVCRenderCommand implements MVCRenderCommand {
 	public String render(
 		RenderRequest renderRequest, RenderResponse renderResponse) {
 
-		return "SettingsDataSources.render";
+		return "SettingsHome.render";
 	}
 
 }

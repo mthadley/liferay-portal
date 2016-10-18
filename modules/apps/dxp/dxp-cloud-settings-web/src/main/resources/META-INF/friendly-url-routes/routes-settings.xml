@@ -3,18 +3,18 @@
 <routes>
 	<route>
 		<pattern>/settings</pattern>
-		<implicit-parameter name="mvcRenderCommandName">/settings/datasources/SettingsDataSources</implicit-parameter>
+		<implicit-parameter name="mvcRenderCommandName">/pages/SettingsHome</implicit-parameter>
 	</route>
 	<route>
 		<pattern>/settings/datasources</pattern>
-		<implicit-parameter name="mvcRenderCommandName">/settings/datasources/SettingsDataSources</implicit-parameter>
+		<implicit-parameter name="mvcRenderCommandName">/pages/SettingsHome</implicit-parameter>
 	</route>
 	<route>
 		<pattern>/settings/identification</pattern>
-		<implicit-parameter name="mvcRenderCommandName">/settings/identification/SettingsIdentification</implicit-parameter>
+		<implicit-parameter name="mvcRenderCommandName">/pages/SettingsIdentification</implicit-parameter>
 	</route>
 	<route>
 		<pattern>/settings/miscellaneous</pattern>
-		<implicit-parameter name="mvcRenderCommandName">/settings/miscellaneous/SettingsMiscellaneous</implicit-parameter>
+		<implicit-parameter name="mvcRenderCommandName">/pages/SettingsMiscellaneous</implicit-parameter>
 	</route>
 </routes>

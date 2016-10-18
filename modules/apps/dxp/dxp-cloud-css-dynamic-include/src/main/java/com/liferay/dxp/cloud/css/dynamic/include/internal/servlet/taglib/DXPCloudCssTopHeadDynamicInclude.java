@@ -75,7 +75,7 @@ public class DXPCloudCssTopHeadDynamicInclude extends BaseDynamicInclude {
 		sb.append(themeDisplay.getPortalURL());
 		sb.append(PortalUtil.getPathProxy());
 		sb.append("/o/dxp-cloud-settings");
-		sb.append("/assets/css/settings.css\" rel=\"stylesheet\" type = ");
+		sb.append("/css/main.css\" rel=\"stylesheet\" type = ");
 		sb.append("\"text/css\" />");
 
 		sb.append("<link href=\"");
