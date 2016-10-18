@@ -89,7 +89,7 @@ public class DXPCloudCssTopHeadDynamicInclude extends BaseDynamicInclude {
 		sb.append(themeDisplay.getPortalURL());
 		sb.append(PortalUtil.getPathProxy());
 		sb.append("/o/dxp-cloud-shared");
-		sb.append("/main.css\" rel=\"stylesheet\" type = ");
+		sb.append("/css/main.css\" rel=\"stylesheet\" type = ");
 		sb.append("\"text/css\" />");
 
 		printWriter.println(sb.toString());
