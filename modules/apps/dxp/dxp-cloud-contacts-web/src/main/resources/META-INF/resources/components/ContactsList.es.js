@@ -5,6 +5,8 @@ import core from 'metal';
 import Soy from 'metal-soy';
 import templates from './ContactsList.soy';
 
+import 'dxp-cloud-shared/Spinner.es';
+
 import './ContactListItem.es';
 
 import InfiniteScroll from './InfiniteScroll.es';

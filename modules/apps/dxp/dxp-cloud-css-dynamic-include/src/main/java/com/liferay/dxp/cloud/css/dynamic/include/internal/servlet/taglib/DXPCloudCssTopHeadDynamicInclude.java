@@ -48,7 +48,7 @@ public class DXPCloudCssTopHeadDynamicInclude extends BaseDynamicInclude {
 
 		PrintWriter printWriter = response.getWriter();
 
-		StringBundler sb = new StringBundler(42);
+		StringBundler sb = new StringBundler(36);
 
 		sb.append("<link href=\"");
 		sb.append(themeDisplay.getPortalURL());

@@ -31,9 +31,7 @@
 		{/if}
 
 		{if $loading_ != false}
-			<div class="spinner-component">
-				<span class="loading-spinner spinner spinner-large"></span>
-			</div>
+			{call Spinner.render /}
 		{/if}
 	</div>
 {/template}

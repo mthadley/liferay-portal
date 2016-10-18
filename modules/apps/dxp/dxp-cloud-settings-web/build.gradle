@@ -13,6 +13,7 @@ dependencies {
 
 transpileJS {
 	soyDependencies = [
+		System.getProperty("user.dir") + "/../dxp-cloud-shared/src/**/resources/*.soy",
 		System.getProperty("user.dir") + "/../dxp-cloud-sidebar/src/**/resources/*.soy",
 		System.getProperty("user.dir") + "/../dxp-cloud-topbar/src/**/resources/*.soy",
 		System.getProperty("user.dir") + "/../dxp-cloud-web/src/**/resources/*.soy"
