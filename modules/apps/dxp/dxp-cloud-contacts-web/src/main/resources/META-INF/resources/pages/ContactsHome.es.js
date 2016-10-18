@@ -20,7 +20,7 @@ const CONTACT_INDEX_KEYS = [
 ];
 
 class ContactsHome extends Component {
-	getContacts_() {
+	getContacts_(size) {
 		const instance = this;
 
 		const start = instance.contacts_.length;
@@ -31,7 +31,7 @@ class ContactsHome extends Component {
 					'/SCVUserProfileUtil.userprofileutil/get-scv-user-profiles',
 					{
 						from: start,
-						size: 40
+						size
 					},
 					contacts => {
 						const normalizedContacts = instance.normalizeContacts_(contacts);
