@@ -35,7 +35,7 @@ import org.osgi.service.component.annotations.Component;
 	immediate = true,
 	property = {
 		"javax.portlet.name=dxp_cloud_portlet",
-		"mvc.command.name=/contacts/ContactsHome"
+		"mvc.command.name=/contacts/Home"
 	},
 	service = MVCRenderCommand.class
 )

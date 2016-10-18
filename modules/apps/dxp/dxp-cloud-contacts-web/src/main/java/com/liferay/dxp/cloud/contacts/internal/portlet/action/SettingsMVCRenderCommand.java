@@ -51,7 +51,7 @@ public class SettingsMVCRenderCommand implements MVCRenderCommand {
 		template.put("fields", fields);
 		template.put("loading_", true);
 
-		return "Settings.render";
+		return "ContactsSettings.render";
 	}
 
 }
