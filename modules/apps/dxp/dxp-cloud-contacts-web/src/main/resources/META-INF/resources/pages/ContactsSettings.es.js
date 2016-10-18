@@ -1,14 +1,14 @@
 'use strict';
 
 import core from 'metal';
-import templates from './Settings.soy';
+import templates from './ContactsSettings.soy';
 import Component from 'metal-component';
 import Soy from 'metal-soy';
 
-import './components/AddField.es';
-import './components/FieldDisplay.es';
-import './components/FieldEditor.es';
-import './components/IconButton.es';
+import '../components/AddField.es';
+import '../components/FieldDisplay.es';
+import '../components/FieldEditor.es';
+import '../components/IconButton.es';
 import 'metal-modal';
 
 class Settings extends Component {

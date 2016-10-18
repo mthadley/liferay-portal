@@ -4,10 +4,10 @@
 <routes>
 	<route>
 		<pattern>/contacts</pattern>
-		<implicit-parameter name="mvcRenderCommandName">/contacts/Home</implicit-parameter>
+		<implicit-parameter name="mvcRenderCommandName">/pages/ContactsHome</implicit-parameter>
 	</route>
 	<route>
 		<pattern>/contacts/settings</pattern>
-		<implicit-parameter name="mvcRenderCommandName">/contacts/Settings</implicit-parameter>
+		<implicit-parameter name="mvcRenderCommandName">/pages/ContactsSettings</implicit-parameter>
 	</route>
 </routes>

@@ -62,7 +62,7 @@ public class SidebarItemsContextContributor
 		sidebarItem4.put("href", "/web/guest/home/dxp/contacts");
 		sidebarItem4.put("icon", "/o/dxp-cloud-sidebar/assets/images/Contacts.png");
 		sidebarItem4.put("label", "Contacts");
-		sidebarItem4.put("mvcRenderCommandName", "/contacts/ContactsHome");
+		sidebarItem4.put("mvcRenderCommandName", "/pages/ContactsHome");
 
 		Map<String, Object> sidebarItem5 = new HashMap();
 		sidebarItem5.put("href", "/web/guest/home/dxp/touchpoints");

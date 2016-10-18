@@ -7,8 +7,8 @@ import {CancellablePromise as Promise} from 'metal-promise';
 import 'dxp-cloud-sidebar/DXPSidebar.es';
 import 'dxp-cloud-topbar/DXPTopbar.es';
 
-import './ContactsList.es';
-import './Profile.es';
+import '../components/ContactsList.es';
+import '../components/Profile.es';
 
 const REGEX_ASSOC = /\$ASSOCIATED\$/;
 
